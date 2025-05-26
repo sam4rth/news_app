@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/article.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BookmarksProvider with ChangeNotifier{
   final List<Article> _bookmarkedArticles = [];
