@@ -58,18 +58,25 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: false,
     //    title: const Text('ACM NEWS APP'),
         actions: [
-          Switch(
-            activeColor: Colors.white,
-            activeTrackColor: Colors.blueAccent,
-            //title: const Text('Dark Mode'),
-            value: darkmodeProvider.isDarkMode,
-            onChanged: (value) {
-              darkmodeProvider.toggleDM(value);
+          IconButton(
+            tooltip: darkmodeProvider.isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode',
+            icon: Icon(
+              darkmodeProvider.isDarkMode ? Icons.dark_mode : Icons.light_mode,
+              color: darkmodeProvider.isDarkMode
+                  ? Colors.yellowAccent
+                  : Colors.amber[700], // or Colors.deepOrange, Colors.orangeAccent, etc.
+            ),
+            onPressed: () {
+              darkmodeProvider.toggleDM(!darkmodeProvider.isDarkMode);
             },
           ),
-          IconButton(onPressed: (){
-          Navigator.pushNamed(context,'/settings');
-        }, icon: const Icon(Icons.settings))],
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/settings');
+            },
+            icon: const Icon(Icons.settings),
+          ),
+        ],
         ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
