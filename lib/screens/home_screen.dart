@@ -1,3 +1,4 @@
+import 'package:news_app/providers/ishort_provider.dart';
 import 'package:news_app/widgets/article_w.dart';
 import 'package:flutter/material.dart';
 import '../data/tp.dart';
@@ -28,9 +29,18 @@ class _HomeScreenState extends State<HomeScreen> {
   
   @override
   Widget build(BuildContext context) {
+    final isShortArticlesOnly = Provider.of<IshortProvider>(context).isShort;
+
     final filteredArticles = selectedCategory == 'All'
-    ? articles
-    : articles.where((a) => a.category == selectedCategory).toList();
+      ? (isShortArticlesOnly
+          ? articles.where((a) => !a.isLong).toList()
+          : articles)
+      : articles.where((a) =>
+          a.category == selectedCategory &&
+          (!isShortArticlesOnly || !a.isLong)
+        ).toList();
+    
+ 
 
     final darkmodeProvider = Provider.of<DarkmodeProvider>(context);
     return Scaffold(

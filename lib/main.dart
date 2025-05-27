@@ -15,6 +15,7 @@
 // │   └── articles_provider.dart
 
 import 'package:news_app/providers/bookmarks_provider.dart';
+import 'package:news_app/providers/ishort_provider.dart';
 import 'package:news_app/screens/bookmarks_screen.dart';
 import 'package:news_app/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,10 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (_) => BookmarksProvider(),
+        
+        ),
+        ChangeNotifierProvider(
+          create: (_) => IshortProvider(),
         
         ),
       ],
