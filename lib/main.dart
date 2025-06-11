@@ -1,19 +1,3 @@
-// /lib
-// ├── main.dart
-// ├── models/
-// │   └── article.dart
-// ├── screens/
-// │   ├── home_screen.dart
-// │   ├── category_screen.dart
-// │   ├── bookmarks_screen.dart
-// │   ├── settings_screen.dart
-// ├── widgets/
-// │   └── article_card.dart
-// ├── data/
-// │   └── dummy_data.dart
-// ├── providers/
-// │   └── articles_provider.dart
-
 import 'package:news_app/providers/bookmarks_provider.dart';
 import 'package:news_app/providers/ishort_provider.dart';
 import 'package:news_app/screens/bookmarks_screen.dart';
